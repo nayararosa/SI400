@@ -9,6 +9,7 @@
 <li> Agendamento de consultas </li>
 <li> Tratamentos </li>
 <li> Relatórios </li>
+<li> Cadastro de veterinários </li>
 </ul>
 <table>
   <tr>
