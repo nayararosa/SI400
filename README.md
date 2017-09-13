@@ -44,4 +44,5 @@
 <li>Consulta</li>
 <li>Exame</li>
 <li>Tratamento</li>
+<li>Veterinário</li>
 </ul>
