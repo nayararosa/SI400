@@ -7,10 +7,6 @@ package Model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author d119322
- */
 public class Animal extends Especie {
     
     private String nome_animal;
