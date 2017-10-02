@@ -19,12 +19,6 @@
     <td><b>GitHub</b></td>
   </tr>
   <tr>
-    <td>Leonardo Fioretti de Moura Teixeira</td>
-    <td>178455</td>
-    <td>l178455@dac.unicamp.br</td>
-    <td><a href="https://github.com/leofmt">leofmt</a></td>
-  </tr>
-  <tr>
     <td>Maximiliano Nunes Biscaia</td>
     <td>156757</td>
     <td>m156757@dac.unicamp.br</td>
