@@ -1,5 +1,8 @@
-
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Control;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,21 +14,44 @@ import java.text.ParseException;
 import java.util.HashSet;
 import java.lang.NullPointerException;
 
+/**
+ *
+ * @author Maximiliano Nunes Biscaia, 156757
+ * @author Nayara Rosa, 175244
+ */
 
-public class Controlador_Veterinaria implements interfacePolimorfica{
+
+ /**
+     *
+ * @author MaximilianoNunesBiscaia,156757
+ * @author NayaraRosa,175244
+     */
+
+public class Controlador_Veterinaria {
 
 private ArrayList<Model.Cliente> dadosCliente;
 private ArrayList<Model.Veterinario> dadosVeterinario;
 private SimpleDateFormat formato;
 
-public Controlador_Veterinaria(){
+    /**
+     *
+     */
+    public Controlador_Veterinaria(){
     
     dadosCliente = new ArrayList<>();
     dadosVeterinario = new ArrayList<>();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 }
 
-public void writeAnimal(String cliente,String nome,String idade,String sexo, String especie){
+    /**
+     *
+     * @param cliente
+     * @param nome
+     * @param idade
+     * @param sexo
+     * @param especie
+     */
+    public void writeAnimal(String cliente,String nome,String idade,String sexo, String especie){
     
     String[] dados;
             
@@ -37,7 +63,13 @@ public void writeAnimal(String cliente,String nome,String idade,String sexo, Str
    
 }   
 
-public String[] consultaAnimal(String cliente,String nome){
+    /**
+     *
+     * @param cliente
+     * @param nome
+     * @return
+     */
+    public String[] consultaAnimal(String cliente,String nome){
     
     Iterator<Model.Animal> i;
     Model.Animal auxAnimal;
@@ -80,7 +112,13 @@ public String[] consultaAnimal(String cliente,String nome){
     return dados;
 }
 
-public Model.Animal retornaAnimal(String cliente,String nome){
+    /**
+     *
+     * @param cliente
+     * @param nome
+     * @return
+     */
+    public Model.Animal retornaAnimal(String cliente,String nome){
     
     Iterator<Model.Animal> i;
     Model.Animal auxAnimal;
@@ -119,7 +157,15 @@ public Model.Animal retornaAnimal(String cliente,String nome){
     
 }
 
-public void writeCliente(String nome,String endereco,String telefone,int cep,String email){
+    /**
+     *
+     * @param nome
+     * @param endereco
+     * @param telefone
+     * @param cep
+     * @param email
+     */
+    public void writeCliente(String nome,String endereco,String telefone,int cep,String email){
     
     String[] dados;
             
@@ -130,7 +176,12 @@ public void writeCliente(String nome,String endereco,String telefone,int cep,Str
    dadosCliente.add(novoCliente);
 }   
 
-public String[] consultaCliente(String nome){
+    /**
+     *
+     * @param nome
+     * @return
+     */
+    public String[] consultaCliente(String nome){
     
     Iterator<Model.Cliente> i;
     Model.Cliente auxCliente;
@@ -170,7 +221,12 @@ public String[] consultaCliente(String nome){
     return dados;
 }
 
-public Model.Cliente retornaCliente(String nome){
+    /**
+     *
+     * @param nome
+     * @return
+     */
+    public Model.Cliente retornaCliente(String nome){
     
     Iterator<Model.Cliente> i;
     Model.Cliente auxCliente;
@@ -207,7 +263,15 @@ public Model.Cliente retornaCliente(String nome){
     
 }
 
-public void writeConsulta(String cliente,String animal,String data,String historico, String veterinario){
+    /**
+     *
+     * @param cliente
+     * @param animal
+     * @param data
+     * @param historico
+     * @param veterinario
+     */
+    public void writeConsulta(String cliente,String animal,String data,String historico, String veterinario){
     
     String[] dados;
     
@@ -217,8 +281,16 @@ public void writeConsulta(String cliente,String animal,String data,String histor
    retornaTratamento(cliente,animal).Lis_Con().add(novoConsulta);
 }
 
-
-public void writeConsulta(String cliente,String animal,String data,String historico, String veterinario, String des_exame){
+    /**
+     *
+     * @param cliente
+     * @param animal
+     * @param data
+     * @param historico
+     * @param veterinario
+     * @param des_exame
+     */
+    public void writeConsulta(String cliente,String animal,String data,String historico, String veterinario, String des_exame){
     
     String[] dados;
     Model.Exame exame = new Model.Exame();
@@ -234,7 +306,13 @@ public void writeConsulta(String cliente,String animal,String data,String histor
    retornaTratamento(cliente,animal).Lis_Con().add(novoConsulta);
 }
 
-public String[] consultaConsulta(ArrayList<Model.Consulta> dadosConsulta, String nome){
+    /**
+     *
+     * @param dadosConsulta
+     * @param nome
+     * @return
+     */
+    public String[] consultaConsulta(ArrayList<Model.Consulta> dadosConsulta, String nome){
     
     Iterator<Model.Consulta> i;
     Model.Consulta auxConsulta;
@@ -270,7 +348,13 @@ public String[] consultaConsulta(ArrayList<Model.Consulta> dadosConsulta, String
     return dados;
 }
 
-public void writeVeterinario(String nome, String endereco, String telefone){
+    /**
+     *
+     * @param nome
+     * @param endereco
+     * @param telefone
+     */
+    public void writeVeterinario(String nome, String endereco, String telefone){
     
     String[] dados;
     
@@ -280,7 +364,12 @@ public void writeVeterinario(String nome, String endereco, String telefone){
    dadosVeterinario.add(novoVeterinario);
 }   
 
-public String[] consultaVeterinario(String nome){
+    /**
+     *
+     * @param nome
+     * @return
+     */
+    public String[] consultaVeterinario(String nome){
     
     Iterator<Model.Veterinario> i;
     ArrayList<Model.Veterinario> auxiliarVet;
@@ -332,7 +421,12 @@ public String[] consultaVeterinario(String nome){
     return dados;
 }
 
-public Model.Veterinario retornaVeterinario(String nome){
+    /**
+     *
+     * @param nome
+     * @return
+     */
+    public Model.Veterinario retornaVeterinario(String nome){
     
     Iterator<Model.Veterinario> i;
     ArrayList<Model.Veterinario> auxiliarVet;
@@ -384,7 +478,14 @@ public Model.Veterinario retornaVeterinario(String nome){
     return auxVeterinario;
 }
 
-public void writeTratamento(String cliente,String animal,Date inicio, Date fim){
+    /**
+     *
+     * @param cliente
+     * @param animal
+     * @param inicio
+     * @param fim
+     */
+    public void writeTratamento(String cliente,String animal,Date inicio, Date fim){
     
       
     
@@ -395,7 +496,13 @@ public void writeTratamento(String cliente,String animal,Date inicio, Date fim){
    
 }
 
-public Model.Tratamento retornaTratamento(String cliente, String animal){//retorna ultimo
+    /**
+     *
+     * @param cliente
+     * @param animal
+     * @return
+     */
+    public Model.Tratamento retornaTratamento(String cliente, String animal){//retorna ultimo
     
     Iterator<Model.Tratamento> i;
     Model.Tratamento auxTratamento;
@@ -425,7 +532,15 @@ public Model.Tratamento retornaTratamento(String cliente, String animal){//retor
 
 
 }
-public boolean consultaTratamento(String cliente, String animal,Date data){//retorna ultimo
+
+    /**
+     *
+     * @param cliente
+     * @param animal
+     * @param data
+     * @return
+     */
+    public boolean consultaTratamento(String cliente, String animal,Date data){//retorna ultimo
     
     Iterator<Model.Tratamento> i;
     Model.Tratamento auxTratamento;
@@ -481,7 +596,11 @@ public boolean consultaTratamento(String cliente, String animal,Date data){//ret
     }
 }
 
-public String[][] tabelaVeterinario(){
+    /**
+     *
+     * @return
+     */
+    public String[][] tabelaVeterinario(){
     
     Iterator<Model.Veterinario> i;
     String[][] dados = new String[20][3];
@@ -500,7 +619,12 @@ public String[][] tabelaVeterinario(){
     return dados;
 }
 
-public String[][] retornarAnimal(String cliente){
+    /**
+     *
+     * @param cliente
+     * @return
+     */
+    public String[][] retornarAnimal(String cliente){
     
     String[][] dados = new String[20][4];
     String[] aux;
