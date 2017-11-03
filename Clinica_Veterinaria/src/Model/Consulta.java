@@ -1,8 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-
+/**
+  * @author MaximilianoNunesBiscaia,156757
+ * @author NayaraRosa,175244
+ */
 public class Consulta {
     
     private Date dat_con;
@@ -11,6 +19,11 @@ public class Consulta {
     private Veterinario veterinario;
     private Exame exame;
     
+    /**
+     *
+     * @param dados
+     * @param vet
+     */
     public Consulta(String[] dados, Veterinario vet){
         
         formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -25,10 +38,17 @@ public class Consulta {
         }
     }
     
-     public Consulta(){
+    /**
+     *
+     */
+    public Consulta(){
      
     }
     
+    /**
+     *
+     * @return
+     */
     public String[] Ver_Con(){
         String[] dados = new String[5];
         
@@ -38,7 +58,12 @@ public class Consulta {
         return dados;
     }
     
-    
+    /**
+     *
+     * @param dados
+     * @param vet
+     * @param ex
+     */
     public void Reg_Con(String[] dados, Veterinario vet, Exame ex){
         
         formato = new SimpleDateFormat("dd/MM/yyyy");

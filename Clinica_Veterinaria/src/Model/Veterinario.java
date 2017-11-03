@@ -5,14 +5,19 @@
  */
 package Model;
 
-
-
+/**
+  * @author MaximilianoNunesBiscaia,156757
+ * @author NayaraRosa,175244
+ */
 public class Veterinario {
     private String nom_vet;
     private String end_vet;
     private String tel_vet;
     
-    
+    /**
+     *
+     * @param dados
+     */
     public Veterinario(String[] dados){
         
         nom_vet = dados[0];
@@ -21,6 +26,10 @@ public class Veterinario {
         
     }
     
+    /**
+     *
+     * @return
+     */
     public String[] Lis_Vet(){
         String[] dados = new String[3];
         
@@ -31,6 +40,10 @@ public class Veterinario {
         return dados;
     }
     
+    /**
+     *
+     * @return
+     */
     public String Ver_Vet(){
         return nom_vet;
     }

@@ -1,12 +1,16 @@
+    /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
-
+/**
+  * @author MaximilianoNunesBiscaia,156757
+ * @author NayaraRosa,175244
+ */
 public class Animal extends Especie {
     
     private String nome_animal;
@@ -15,7 +19,10 @@ public class Animal extends Especie {
     private Cliente cliente;
     private ArrayList<Model.Tratamento> dadosTratamento;
      
-    
+    /**
+     *
+     * @param dados
+     */
     public Animal(String[] dados){
     
     nome_animal = dados[0];
@@ -25,7 +32,10 @@ public class Animal extends Especie {
    dadosTratamento = new ArrayList<>();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public String[] Ret_Animal(){
         String[] dados = new String[4];
         
@@ -37,38 +47,28 @@ public class Animal extends Especie {
        
     }
     
+    /**
+     *
+     * @return
+     */
     public String Con_Animal(){
         return nome_animal;
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Tratamento> Vis_Trat(){
         return dadosTratamento;
     }
     
+    /**
+     *
+     * @param trat
+     */
     public void setTratamento(Tratamento trat){
         dadosTratamento.add(trat);
     }
     
-    
-    
-  public void escreve() throws IOException
-    {  
-      File arq = new File ("ConsultaAnimal.txt");
-      
-      try{
-          
-            arq.createNewFile();
-            FileWriter fileW =  new FileWriter (arq);
-            BufferedWriter buffW = new BufferedWriter (fileW);
-         
-            
-            buffW.write(nome_animal);
-            buffW.close ();
-            
-            } catch (IOException io) {
-
-		} 
-    
-    
 }
-
