@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 package Model;
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
   * @author MaximilianoNunesBiscaia,156757
  * @author NayaraRosa,175244
  */
-public class Cliente {
+public class Cliente extends Grava implements Serializable {
     
     private String nom_cli;
     private String end_cli;
     private String tel_cli;
-    private long cep_cli;
+    private String cep_cli;
     private String email_cli;
     private ArrayList<Animal> animal;
     
@@ -35,7 +36,7 @@ public class Cliente {
         nom_cli = dados[0];
         end_cli = dados[1];
         tel_cli = dados[2];
-        cep_cli = Integer.parseInt(dados[3]);
+        cep_cli = dados[3];
         email_cli = dados[4];
         animal = new ArrayList<>();
     };
@@ -81,4 +82,23 @@ public class Cliente {
     public void setAnimal(Animal novo){
         animal.add(novo);
     }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString()
+    {
+     
+      return "Nome Cliente: " + this.nom_cli + "\r\n"
+            +"Endereço: " + this.end_cli + "\r\n"
+            +"Telefone: " + this.tel_cli + "\r\n"
+            +"CEP: " + this.cep_cli + "\r\n"
+            +"Email " + this.email_cli + "\r\n";
+                
+    }
+    
+    
+    
 }

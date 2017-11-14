@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
+import java.io.Serializable;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -11,27 +12,35 @@ import java.text.ParseException;
   * @author MaximilianoNunesBiscaia,156757
  * @author NayaraRosa,175244
  */
-public class Consulta {
+public class Consulta implements Serializable {
     
     private Date dat_con;
     private String historico;
+    private String nome_cliente;
+    private String nome_animal;    
+    private String nome_vet;
+    private String exame1;
     private SimpleDateFormat formato;
     private Veterinario veterinario;
+   
     private Exame exame;
     
     /**
      *
      * @param dados
-     * @param vet
      */
-    public Consulta(String[] dados, Veterinario vet){
+    public Consulta(String[] dados){
         
         formato = new SimpleDateFormat("dd/MM/yyyy");
         try{
            
           dat_con =formato.parse(dados[0]);
           historico = dados[1];
-          veterinario = vet;
+          nome_cliente = dados[2];
+          nome_animal = dados[3];
+          nome_vet = dados[4];
+        
+          
           
         }catch(ParseException e){
                 System.out.println("Erro na data inserida!");
@@ -61,23 +70,43 @@ public class Consulta {
     /**
      *
      * @param dados
-     * @param vet
-     * @param ex
      */
-    public void Reg_Con(String[] dados, Veterinario vet, Exame ex){
+    public void Reg_Con(String[] dados){
         
         formato = new SimpleDateFormat("dd/MM/yyyy");
         try{
            
+        
           dat_con =formato.parse(dados[0]);
           historico = dados[1];
-          veterinario = vet;
-          exame = ex;
+          nome_cliente = dados[2];
+          nome_animal = dados[3];
+          nome_vet = dados[4];
+          exame1 = dados [5];
           
         }catch(ParseException e){
                 System.out.println("Erro na data inserida!");
         }
     }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString()
+    {
+     
+      return "Data: " + this.dat_con + "\r\n"
+            +"Histórico: " + this.historico + "\r\n"
+            +"Nome do Cliente: " + this.nome_cliente + "\r\n"
+            +"Nome do Animal: " + this.nome_animal+ "\r\n"
+            +"Veterinario: " + this.nome_vet + "\r\n"
+            +"Exame: " + this.exame1 + "\r\n";
+                
+    }
+    
+    
     
     
 }

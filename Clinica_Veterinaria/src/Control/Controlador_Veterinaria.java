@@ -4,7 +4,12 @@
  * and open the template in the editor.
  */
 package Control;
+import Model.Animal;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.lang.ArrayIndexOutOfBoundsException;
@@ -13,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.HashSet;
 import java.lang.NullPointerException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,10 +34,13 @@ import java.lang.NullPointerException;
  * @author NayaraRosa,175244
      */
 
-public class Controlador_Veterinaria {
+public class Controlador_Veterinaria implements interfacePolimorfica {
 
 private ArrayList<Model.Cliente> dadosCliente;
 private ArrayList<Model.Veterinario> dadosVeterinario;
+private ArrayList<Model.Animal> dadosAnimal;
+private ArrayList<Model.Tratamento> dadosTratamento;
+private ArrayList<Model.Consulta> dadosConsulta;
 private SimpleDateFormat formato;
 
     /**
@@ -40,6 +50,9 @@ private SimpleDateFormat formato;
     
     dadosCliente = new ArrayList<>();
     dadosVeterinario = new ArrayList<>();
+    dadosAnimal = new ArrayList<>();
+    dadosTratamento = new ArrayList<>();
+    dadosConsulta = new ArrayList<>();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 }
 
@@ -54,13 +67,25 @@ private SimpleDateFormat formato;
     public void writeAnimal(String cliente,String nome,String idade,String sexo, String especie){
     
     String[] dados;
-            
-    dados = new String[]{nome,idade,sexo,especie};
-    
+    Model.Especie esp = new Model.Especie();
+    esp.setEspecie(especie);
+             
+    dados = new String[]{nome,idade,sexo,esp.getEspecie()};
+   
+   Model.Grava a = new Model.Grava();
+   Model.Cliente cli = new Model.Cliente(); 
    Model.Animal novoAnimal = new Model.Animal(dados);
    
-        retornaCliente(cliente).setAnimal(novoAnimal);
+   // retornaCliente(cliente).setAnimal(novoAnimal);
    
+   if(consultaCliente(cliente)!=null){
+   
+    dadosAnimal.add(novoAnimal);
+ 
+ 
+a.escreveAnimal(dadosAnimal);
+   }
+  
 }   
 
     /**
@@ -73,16 +98,24 @@ private SimpleDateFormat formato;
     
     Iterator<Model.Animal> i;
     Model.Animal auxAnimal;
+    Model.Grava a = new Model.Grava();
     String[] dados = new String[20];
     String aux;
     int n =0;
-    ArrayList<Model.Animal> auxiliarAnimal;
+    ArrayList<Model.Animal> auxiliarAnimal = null;
     
     try{
-    auxiliarAnimal = retornaCliente(cliente).Vis_Animal();
+    //auxiliarAnimal = retornaCliente(cliente).Vis_Animal();
+    //auxiliarAnimal = retornaCliente(cliente).leAnimal();
+  
+    if(consultaCliente(cliente) !=null){
+    auxiliarAnimal = a.leAnimal();
+    }    
+   
     
     i = auxiliarAnimal.iterator();
-    auxAnimal = auxiliarAnimal.get(0);
+    auxAnimal = auxiliarAnimal.get(n);
+    
     
     while (i.hasNext()){
         
@@ -127,7 +160,8 @@ private SimpleDateFormat formato;
     int n =0;
     ArrayList<Model.Animal> auxiliarAnimal;
     
-    auxiliarAnimal = retornaCliente(cliente).Vis_Animal();
+   // auxiliarAnimal = retornaCliente(cliente).Vis_Animal();
+ auxiliarAnimal = retornaCliente(cliente).leAnimal();
     
     i = auxiliarAnimal.iterator();
     auxAnimal = auxiliarAnimal.get(0);
@@ -165,15 +199,19 @@ private SimpleDateFormat formato;
      * @param cep
      * @param email
      */
-    public void writeCliente(String nome,String endereco,String telefone,int cep,String email){
+   public void writeCliente(String nome,String endereco,String telefone, String cep,String email){
     
-    String[] dados;
+   Model.Grava a = new Model.Grava();
+                    
+   String[] dados;
             
-    dados = new String[]{nome,endereco,telefone,Integer.toString(cep),email};
+   dados = new String[]{nome,endereco,telefone, cep ,email};
     
    Model.Cliente novoCliente = new Model.Cliente();
    novoCliente.Reg_Cli(dados);
    dadosCliente.add(novoCliente);
+   a.escreveCliente(dadosCliente);
+   
 }   
 
     /**
@@ -184,14 +222,17 @@ private SimpleDateFormat formato;
     public String[] consultaCliente(String nome){
     
     Iterator<Model.Cliente> i;
+    Model.Grava a = new Model.Grava();
     Model.Cliente auxCliente;
     String[] dados = new String[20];
     String aux;
     int n =0;
     
-    i = dadosCliente.iterator();
+   // i = dadosCliente.iterator();
+   i = a.leCliente().iterator();
     try{
-        auxCliente = dadosCliente.get(0);
+       // auxCliente = dadosCliente.get(0);
+       auxCliente = a.leCliente().get(n);
     
     while (i.hasNext()){
         
@@ -200,6 +241,7 @@ private SimpleDateFormat formato;
             aux = auxCliente.Con_Cli();
             if( aux.equals(nome)){
                 dados = auxCliente.Vis_Cli();
+                
                 n++;
                 auxCliente =  i.next();
             }else{
@@ -228,15 +270,18 @@ private SimpleDateFormat formato;
      */
     public Model.Cliente retornaCliente(String nome){
     
+    Model.Grava a = new Model.Grava();    
     Iterator<Model.Cliente> i;
     Model.Cliente auxCliente;
     String[] dados = new String[20];
     String aux;
     int n =0;
     
-    i = dadosCliente.iterator();
-    auxCliente = dadosCliente.get(0);
-    
+  //  i = dadosCliente.iterator();
+     i = a.leCliente().iterator();
+   //auxCliente = dadosCliente.get(0);
+    auxCliente = a.leCliente().get(0);
+            
     while (i.hasNext()){
         
         try{
@@ -273,12 +318,23 @@ private SimpleDateFormat formato;
      */
     public void writeConsulta(String cliente,String animal,String data,String historico, String veterinario){
     
+       
     String[] dados;
+    Model.Grava a = new Model.Grava();
+    dados = new String[]{(data),historico, cliente, animal, veterinario};
     
-    dados = new String[]{(data),historico};
     
-   Model.Consulta novoConsulta = new Model.Consulta(dados,retornaVeterinario(veterinario));
-   retornaTratamento(cliente,animal).Lis_Con().add(novoConsulta);
+   Model.Consulta novoConsulta = new Model.Consulta(dados);
+   
+      
+   if(consultaAnimal(cliente, animal) !=null)
+   {
+       dadosConsulta.add(novoConsulta);
+     a.escreveConsulta(dadosConsulta);
+   }
+   
+//retornaTratamento(cliente,animal).Lis_Con().add(novoConsulta);
+  
 }
 
     /**
@@ -294,16 +350,22 @@ private SimpleDateFormat formato;
     
     String[] dados;
     Model.Exame exame = new Model.Exame();
-    
+    Model.Grava a = new Model.Grava();
     exame.setExame(des_exame);
     
 
     
-    dados = new String[]{(data),historico};
+    dados = new String[]{(data),historico, cliente, animal, veterinario, exame.getExame()};
     
    Model.Consulta novoConsulta = new Model.Consulta();
-   novoConsulta.Reg_Con(dados,retornaVeterinario(veterinario),exame);
-   retornaTratamento(cliente,animal).Lis_Con().add(novoConsulta);
+   novoConsulta.Reg_Con(dados);
+   
+    if(consultaAnimal(cliente, animal) !=null)
+   {
+       dadosConsulta.add(novoConsulta);
+     a.escreveConsulta(dadosConsulta);
+   }
+ 
 }
 
     /**
@@ -321,7 +383,7 @@ private SimpleDateFormat formato;
     int n =0;
     
     i = dadosConsulta.iterator();
-    auxConsulta = dadosConsulta.get(0);
+    auxConsulta = dadosConsulta.get(n);
     
     while (i.hasNext()){
         
@@ -357,11 +419,15 @@ private SimpleDateFormat formato;
     public void writeVeterinario(String nome, String endereco, String telefone){
     
     String[] dados;
+    Model.Grava a = new Model.Grava();
     
     dados = new String[]{nome,endereco,telefone};
     
    Model.Veterinario novoVeterinario = new Model.Veterinario(dados);
    dadosVeterinario.add(novoVeterinario);
+   
+   a.escreveVet(dadosVeterinario);
+   
 }   
 
     /**
@@ -374,15 +440,19 @@ private SimpleDateFormat formato;
     Iterator<Model.Veterinario> i;
     ArrayList<Model.Veterinario> auxiliarVet;
     Model.Veterinario auxVeterinario;
+    Model.Grava a = new Model.Grava();
     String[] dados = new String[20];
     String aux;
     int n =0;
     
-    auxiliarVet = dadosVeterinario;
+   // auxiliarVet = dadosVeterinario;
+   auxiliarVet = a.leVet();
     
     try{
     
     i = auxiliarVet.iterator();
+    
+    
     auxVeterinario = auxiliarVet.get(0);
     
             //condicao para verificar se é o primeiro
@@ -431,16 +501,18 @@ private SimpleDateFormat formato;
     Iterator<Model.Veterinario> i;
     ArrayList<Model.Veterinario> auxiliarVet;
     Model.Veterinario auxVeterinario;
+    Model.Grava a = new Model.Grava();
     String[] dados = new String[20];
     String aux;
     int n =0;
     
-    auxiliarVet = dadosVeterinario;
     
+  //  auxiliarVet = dadosVeterinario;
+      auxiliarVet = a.leVet();
     try{
     
     i = auxiliarVet.iterator();
-    auxVeterinario = auxiliarVet.get(0);
+    auxVeterinario = auxiliarVet.get(n);
     
             //condicao para verificar se é o primeiro
     // auxVeterinario = i.next();        
@@ -490,9 +562,20 @@ private SimpleDateFormat formato;
       
     
    Model.Tratamento novoTratamento = new Model.Tratamento();
-   novoTratamento.Reg_Trat(inicio,fim);
+   Model.Grava a = new Model.Grava();
+   novoTratamento.Reg_Trat(inicio,fim, cliente, animal);
 
-   retornaAnimal(cliente,animal).setTratamento(novoTratamento);
+   //retornaAnimal(cliente,animal).setTratamento(novoTratamento);
+   
+   if(consultaAnimal(cliente, animal) != null){
+   
+   dadosTratamento.add(novoTratamento);
+   
+   a.escreveTratamento(dadosTratamento);
+       
+   }
+   
+  
    
 }
 
@@ -506,13 +589,20 @@ private SimpleDateFormat formato;
     
     Iterator<Model.Tratamento> i;
     Model.Tratamento auxTratamento;
+    Model.Grava a = new Model.Grava();
     String[] dados = new String[20];
     Date aux = new Date();
     int n =0;
-    ArrayList<Model.Tratamento> auxiliarTrat;
+    ArrayList<Model.Tratamento> auxiliarTrat = null;
     
-    auxiliarTrat = retornaAnimal(cliente,animal).Vis_Trat();
-    
+  //  auxiliarTrat = retornaAnimal(cliente,animal).Vis_Trat();
+     
+ if(consultaAnimal(cliente,animal)!=null)
+ {
+     auxiliarTrat = a.leTratamento();
+ }  
+  
+  
     try{
     
     i = auxiliarTrat.iterator();
@@ -543,21 +633,27 @@ private SimpleDateFormat formato;
     public boolean consultaTratamento(String cliente, String animal,Date data){//retorna ultimo
     
     Iterator<Model.Tratamento> i;
+    Model.Grava a = new Model.Grava();
     Model.Tratamento auxTratamento;
     String[] dados = new String[20];
     Date[] aux;
     int n =0;
-    ArrayList<Model.Tratamento> auxiliarTrat;
+    ArrayList<Model.Tratamento> auxiliarTrat = null;
    
     
-    auxiliarTrat = retornaAnimal(cliente,animal).Vis_Trat();
+   // auxiliarTrat = retornaAnimal(cliente,animal).Vis_Trat();
+
+    if(consultaAnimal(cliente, animal) != null)
+    {
+     auxiliarTrat = a.leTratamento();
+    }
     
     try{
    
     
     i = auxiliarTrat.iterator();
 
-    auxTratamento = auxiliarTrat.get(0);
+    auxTratamento = auxiliarTrat.get(n);
 
      
     while (i.hasNext()){
@@ -598,25 +694,119 @@ private SimpleDateFormat formato;
 
     /**
      *
-     * @return
      */
-    public String[][] tabelaVeterinario(){
+
+    public void escreveRelatorio(){
     
     Iterator<Model.Veterinario> i;
+    Iterator<Model.Cliente> j;
+    Iterator<Model.Animal> k;
+    Iterator<Model.Tratamento> l;
+    Iterator<Model.Consulta> m;
+     
     String[][] dados = new String[20][3];
     Model.Veterinario auxVeterinario;
+    File arq = new File("Relatorio.txt");
+    Model.Grava a = new Model.Grava();
+    ArrayList<Model.Veterinario> teste = a.leVet();
+    ArrayList<Model.Cliente> cli = a.leCliente();
+    ArrayList<Model.Animal> ani  = a.leAnimal();
+    ArrayList<Model.Tratamento> tra  = a.leTratamento();
+    ArrayList<Model.Consulta> consu = a.leConsulta();
+    
+    
+     Iterator it = cli.iterator();
+ //   ArrayList<Model.Animal> ani = a.leAnimal();
+ //   ArrayList<Model.Tratamento> trat = a.leTratamento();
+ //   ArrayList<Model.Consulta> con = a.leConsulta();
+    
     int n;
     
-    i = dadosVeterinario.iterator();
-    auxVeterinario = dadosVeterinario.get(0);
-    
-    for(n=0;i.hasNext();n++){
-        auxVeterinario = i.next();//traz o primeiro elemento
-        dados[n]=auxVeterinario.Lis_Vet();
-         
+ //i = dadosVeterinario.iterator();
+   i = teste.iterator();
+   j = cli.iterator();
+   k = ani.iterator();
+   l = tra.iterator();
+ 
+   FileWriter fileWriter;
+    try {
+        fileWriter = new FileWriter(arq);
+   
+        try (PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            n = 0;
+            
+            printWriter.println("---------- Lista de Veterinários -----------");
+           for(Model.Veterinario vet : teste){
+               dados[n] = vet.Lis_Vet();
+               printWriter.println(vet.toString());   
+             //   printWriter.println(cli.toString());
+             //   printWriter.println(ani.toString());
+            //    printWriter.println(trat.toString());
+             //   printWriter.println(con.toString());
+                
+                n++;
+            }
+            printWriter.println("-------------------------------------------");
+            printWriter.println();
+           
+             printWriter.println("---------- Lista de Clientes -----------");
+           for(Model.Cliente clien: cli)
+           {
+             printWriter.println(cli.toString());   
+           }
+           printWriter.println("-------------------------------------------");
+           
+              printWriter.println();
+           
+           printWriter.println("---------- Lista de Animais -----------");
+             
+             for(Model.Animal an1: ani)
+           {
+             printWriter.println(ani.toString());   
+           }
+            printWriter.println("-------------------------------------------");
+            printWriter.println();
+            
+            printWriter.println("---------- Lista de Tratamentos-----------");
+             
+             for(Model.Tratamento trat1: tra)
+           {
+             printWriter.println(tra.toString());   
+           }
+            printWriter.println("-------------------------------------------");
+            printWriter.println();
+            
+              printWriter.println("---------- Lista de Consultas-----------");
+             
+             for(Model.Consulta consul1 : consu)
+           {
+             printWriter.println(consu.toString());   
+           }
+            printWriter.println("-------------------------------------------");
+            printWriter.println();
+           
+            printWriter.flush();
+            
+             printWriter.close();
+        }
+		 
+   
+    } catch (FileNotFoundException  ex) {
+      //  Logger.getLogger(Controlador_Veterinaria.class.getName()).log(Level.SEVERE, null, ex);
+      ex.printStackTrace();
+      
+    } catch (IOException ex) {
+        Logger.getLogger(Controlador_Veterinaria.class.getName()).log(Level.SEVERE, null, ex);
     }
-        dados[n]=auxVeterinario.Lis_Vet();
-    return dados;
+   
+ 
+//    for(n=0;i.hasNext();n++){
+//        auxVeterinario = i.next();//traz o primeiro elemento
+//        dados[n]=auxVeterinario.Lis_Vet();
+//         
+//    }
+//        dados[n]=auxVeterinario.Lis_Vet();
+//    return dados;
 }
 
     /**
@@ -649,5 +839,7 @@ private SimpleDateFormat formato;
     return dados;    
     
 }
+
+  
 
 }

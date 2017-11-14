@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package View;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+
 /**
  * @author MaximilianoNunesBiscaia,156757
  * @author NayaraRosa,175244
  */
+
 public class Interface_Veterinaria extends javax.swing.JFrame {
 
     /**
@@ -18,9 +21,10 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
     public Interface_Veterinaria() {
         initComponents();
     }
-    
-    private Control.Controlador_Veterinaria controle= new Control.Controlador_Veterinaria();;
-    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");            
+
+    private Control.Controlador_Veterinaria controle = new Control.Controlador_Veterinaria();
+    ;
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,9 +99,6 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         MC_NomeVeterinario = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         Pes_1Parametro = new javax.swing.JLabel();
         Pes_2Parametro = new javax.swing.JLabel();
@@ -120,6 +121,11 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         CV_Nome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CV_NomeMouseClicked(evt);
+            }
+        });
+        CV_Nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CV_NomeActionPerformed(evt);
             }
         });
 
@@ -152,29 +158,31 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(CV_Gravar))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(39, 39, 39)
-                        .addComponent(CV_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CV_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CV_Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(692, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(658, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CV_Status)
                 .addGap(281, 281, 281))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(39, 39, 39)
+                                .addComponent(CV_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CV_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CV_Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(321, 321, 321)
+                        .addComponent(CV_Gravar)))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +201,9 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(CV_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 459, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(CV_Gravar)
-                .addGap(26, 26, 26))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Cadastro Veterinario", jPanel3);
@@ -265,7 +273,7 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                             .addComponent(CC_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(CC_Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 537, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel12))
@@ -274,19 +282,19 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                                     .addComponent(CC_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CC_e_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(206, 206, 206)
-                                .addComponent(CC_Gravar))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(36, 36, 36)
-                                .addComponent(CC_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel8)
+                        .addGap(36, 36, 36)
+                        .addComponent(CC_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 529, Short.MAX_VALUE)))
                 .addGap(25, 25, 25))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addComponent(CC_Status)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(CC_Status))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(CC_Gravar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -316,9 +324,9 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(CC_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 459, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(CC_Gravar)
-                .addGap(26, 26, 26))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Cadastro Cliente", jPanel4);
@@ -387,13 +395,10 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(129, 129, 129))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(CA_Gravar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(CA_Status)))
+                .addGap(340, 340, 340)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CA_Status)
+                    .addComponent(CA_Gravar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -422,11 +427,11 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(Ca_Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 427, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(CA_Status)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(CA_Gravar)
-                .addGap(31, 31, 31))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Cadastro animal", jPanel2);
@@ -472,39 +477,34 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(204, 204, 204)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(IT_Gravar))
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel20)
-                                        .addComponent(jLabel21))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(IT_NomeCliente)
-                                        .addComponent(IT_NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel17)
-                                        .addComponent(jLabel16))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(IT_Data_Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(IT_Data_Fim, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(IT_NomeCliente)
+                                    .addComponent(IT_NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel16))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(IT_Data_Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(IT_Data_Fim, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(IT_Gravar)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
+                        .addGap(303, 303, 303)
                         .addComponent(IT_Status)))
-                .addContainerGap(625, Short.MAX_VALUE))
+                .addContainerGap(375, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(IT_Status)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IT_NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
@@ -520,9 +520,11 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IT_Data_Fim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
+                .addComponent(IT_Status)
+                .addGap(18, 18, 18)
                 .addComponent(IT_Gravar)
-                .addGap(22, 22, 22))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Iniciar Tratamento", jPanel6);
@@ -582,34 +584,45 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel23))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(MC_NomeCliente)
-                                    .addComponent(MC_NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel14))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(MC_Data, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel22)
+                                        .addComponent(jLabel23))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addGap(19, 19, 19)))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(MC_Historico)
-                                        .addComponent(MC_Exame, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(MC_NomeCliente)
+                                        .addComponent(MC_NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(MC_NomeVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(1, 1, 1))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addGap(18, 18, 18)
-                                .addComponent(MC_NomeVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)))
-                        .addGap(58, 58, 58)
-                        .addComponent(MC_Gravar))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(19, 19, 19)
+                                        .addComponent(MC_Data, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(jLabel13)
+                                                .addGap(19, 19, 19))
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(jLabel15)
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(MC_Exame, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(MC_Historico, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(1, 1, 1))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(268, 268, 268)
                         .addComponent(MC_Status)))
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addContainerGap(400, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MC_Gravar)
+                .addGap(238, 238, 238))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -628,20 +641,21 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MC_NomeVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(MC_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MC_Gravar))
+                    .addComponent(MC_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MC_Historico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(MC_Exame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                    .addComponent(MC_Exame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(30, 30, 30)
+                .addComponent(MC_Gravar)
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Marcar Consulta", jPanel5);
@@ -658,70 +672,21 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nome", "Endereço", "Telefone"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTable1PropertyChange(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        jScrollPane2.setViewportView(jScrollPane1);
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(326, 326, 326)
                 .addComponent(jButton1)
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(131, 131, 131)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(329, 329, 329))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Relatório", jPanel7);
@@ -762,7 +727,7 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                             .addComponent(Pes_2Parametro_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(94, 94, 94)
                 .addComponent(Pes_res, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(520, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -784,7 +749,7 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(Pes_res, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(520, Short.MAX_VALUE))
+                .addContainerGap(389, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Pesquisa", jPanel1);
@@ -793,17 +758,14 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jTabbedPane4)
-                .addContainerGap())
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         pack();
@@ -841,18 +803,6 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CC_NomeActionPerformed
 
-    private void MC_ExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_ExameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MC_ExameActionPerformed
-
-    private void MC_HistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_HistoricoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MC_HistoricoActionPerformed
-
-    private void MC_DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_DataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MC_DataActionPerformed
-
     private void IT_Data_InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IT_Data_InicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IT_Data_InicioActionPerformed
@@ -864,10 +814,6 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
     private void IT_GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IT_GravarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IT_GravarActionPerformed
-
-    private void MC_GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_GravarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MC_GravarActionPerformed
 
     private void Ca_SexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ca_SexoActionPerformed
         // TODO add your handling code here:
@@ -882,45 +828,58 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
     }//GEN-LAST:event_CV_NomeMouseClicked
 
     private void CV_GravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CV_GravarMouseClicked
-        
+
         controle.writeVeterinario(CV_Nome.getText(), CV_Endereco.getText(), CV_Telefone.getText());
         CV_Status.setText(CV_Nome.getText() + " cadastrado!");
+        
+        
+        CV_Nome.setText("");
+        CV_Endereco.setText("");
+        CV_Telefone.setText("");
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_CV_GravarMouseClicked
 
     private void CC_GravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CC_GravarMouseClicked
-        
-        controle.writeCliente(CC_Nome.getText(),CC_Endereco.getText(),CC_Telefone.getText(),Integer.parseInt(CC_CEP.getText()),CC_e_mail.getText());
+
+        controle.writeCliente(CC_Nome.getText(), CC_Endereco.getText(), CC_Telefone.getText(), CC_CEP.getText(), CC_e_mail.getText());
         CC_Status.setText(CC_Nome.getText() + " cadastrado!");
+        
+        CC_Nome.setText("");
+        CC_Endereco.setText("");
+        CC_Telefone.setText("");
+        CC_CEP.setText("");
+        CC_e_mail.setText("");
         // TODO add your handling code here:
     }//GEN-LAST:event_CC_GravarMouseClicked
 
     private void Pes_PesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pes_PesquisarMouseClicked
-            String[] resultado,resultadoaux;
-            String[][] animais;
-            String aux;
-        switch(Pes_combobox.getSelectedIndex()){
-            
+        String[] resultado, resultadoaux;
+        String[][] animais;
+        String aux;
+        switch (Pes_combobox.getSelectedIndex()) {
+
             case 0:
                 resultado = (controle.consultaVeterinario(Pes_1Parametro_Edit.getText()));
-                
-                Pes_res.setText("<html>"+"Resultado da pesquisa: "+"<br />"+
-                        " Nome: "+resultado[0]+"<br />"+
-                        " Telefone: "+resultado[1]+"<br />"+
-                        " Email: "+resultado[2]+"</html>");
-                
+
+                Pes_res.setText("<html>" + "Resultado da pesquisa: " + "<br />"
+                        + " Nome: " + resultado[0] + "<br />"
+                        + " Telefone: " + resultado[1] + "<br />"
+                        + " Email: " + resultado[2] + "</html>");
+
                 break;
             case 1:
                 resultado = controle.consultaCliente(Pes_1Parametro_Edit.getText());
                 //animais = controle.retornarAnimal(Pes_1Parametro_Edit.getText());
-                int i = 0,n = 0;
-                
-                Pes_res.setText("<html>"+"Resultado da pesquisa: "+"<br />"+
-                        " Nome: "+resultado[0]+"<br />"+
-                        " Telefone: "+resultado[1]+"<br />"+
-                        " Email: "+resultado[2]+"<br />"+
-                        " CEP: "+resultado[3]+"<br />"+
-                        " E-mail: "+resultado[4]+"</html>");
+                int i = 0,
+                 n = 0;
+
+                Pes_res.setText("<html>" + "Resultado da pesquisa: " + "<br />"
+                        + " Nome: " + resultado[0] + "<br />"
+                        + " Telefone: " + resultado[1] + "<br />"
+                        + " Email: " + resultado[2] + "<br />"
+                        + " CEP: " + resultado[3] + "<br />"
+                        + " E-mail: " + resultado[4] + "</html>");
                 /*for(;i<animais.length;i++){
                     aux = (aux+"<br />"+
                             animais[i][0]+" "+animais[i][3]);
@@ -929,94 +888,75 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
                 Pes_res.setText(Pes_res.getText()+"</html>");*/
                 break;
             case 3:
-                resultado = controle.consultaAnimal(Pes_1Parametro_Edit.getText(),Pes_2Parametro_Edit.getText());
-                
-                Pes_res.setText("<html>"+"Resultado da pesquisa: "+"<br />"+
-                        " Nome: "+resultado[0]+"<br />"+
-                        " Idade: "+resultado[1]+"<br />"+
-                        " Sexo: "+resultado[2]+"<br />"+
-                        " Especie: "+resultado[3]+"</html>");
+                resultado = controle.consultaAnimal(Pes_1Parametro_Edit.getText(), Pes_2Parametro_Edit.getText());
+
+                Pes_res.setText("<html>" + "Resultado da pesquisa: " + "<br />"
+                        + " Nome: " + resultado[0] + "<br />"
+                        + " Idade: " + resultado[1] + "<br />"
+                        + " Sexo: " + resultado[2] + "<br />"
+                        + " Especie: " + resultado[3] + "</html>");
                 break;
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_Pes_PesquisarMouseClicked
 
     private void CA_GravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CA_GravarMouseClicked
-            
-            String [] resultado;
-            resultado = controle.consultaCliente(CA_NomeCliente.getText());
-            if(resultado[0] == null){
-                CA_Status.setText(" Cliente não encontrado!");
-    }else{
-            controle.writeAnimal(CA_NomeCliente.getText(), CA_NomeAnimal.getText(), CA_Idade.getText(),(Ca_Sexo.getSelectedIndex()==0 ? "Masculino" : "Feminino"),CA_Especie.getText());
+
+        String[] resultado;
+        resultado = controle.consultaCliente(CA_NomeCliente.getText());
+        if (resultado[0] == null) {
+            CA_Status.setText(" Cliente não encontrado!");
+        } else {
+            controle.writeAnimal(CA_NomeCliente.getText(), CA_NomeAnimal.getText(), CA_Idade.getText(), (Ca_Sexo.getSelectedIndex() == 0 ? "Masculino" : "Feminino"), CA_Especie.getText());
             CA_Status.setText(CA_NomeAnimal.getText() + " cadastrado!");
-            }
+            
+            
+            CA_NomeCliente.setText("");
+            CA_NomeAnimal.setText("");
+            CA_Idade.setText("");
+            CA_Especie.setText("");
+            
+            
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_CA_GravarMouseClicked
 
     private void IT_GravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IT_GravarMouseClicked
-       
-        
-        
-    String [] resultado, resultado1;
-            resultado = controle.consultaCliente(IT_NomeCliente.getText());
-            resultado1 = controle.consultaAnimal(IT_NomeCliente.getText(),IT_NomeAnimal.getText());
-    if((resultado[0] == null)||(resultado1[0]==null)){
-                IT_Status.setText(" Cliente/Animal não encontrado!");
-    }else{
-                 try{
-           
-                controle.writeTratamento(IT_NomeCliente.getText(),IT_NomeAnimal.getText(), formato.parse(IT_Data_Inicio.getText()), formato.parse(IT_Data_Fim.getText()));
-                IT_Status.setText("Tratamento de "+IT_NomeAnimal.getText() + " cadastrado!");
-                 }catch(ParseException e){
-                     IT_Status.setText("Data inicio ou Data fim inseridas fora do formato DD/MM/AAAA (DIA = DD, MÊS = MM e ANO = AAAA)");
-                 }
-    }
+
+        String[] resultado, resultado1;
+        resultado = controle.consultaCliente(IT_NomeCliente.getText());
+        resultado1 = controle.consultaAnimal(IT_NomeCliente.getText(), IT_NomeAnimal.getText());
+        if ((resultado[0] == null) || (resultado1[0] == null)) {
+            IT_Status.setText(" Cliente/Animal não encontrado!");
+        } else {
+            try {
+
+                controle.writeTratamento(IT_NomeCliente.getText(), IT_NomeAnimal.getText(), formato.parse(IT_Data_Inicio.getText()), formato.parse(IT_Data_Fim.getText()));
+                IT_Status.setText("Tratamento de " + IT_NomeAnimal.getText() + " cadastrado!");
+                
+                IT_NomeCliente.setText("");
+                IT_NomeAnimal.setText("");
+                IT_Data_Inicio.setText("");
+                IT_Data_Fim.setText("");
+                
+            } catch (ParseException e) {
+                IT_Status.setText("Data inicio ou Data fim inseridas fora do formato DD/MM/AAAA (DIA = DD, MÊS = MM e ANO = AAAA)");
+            }
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_IT_GravarMouseClicked
 
-    private void MC_GravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MC_GravarMouseClicked
-        
-        String [] resultado, resultado1,resultado2;
-        
-            resultado = controle.consultaCliente(MC_NomeCliente.getText());
-            resultado1 = controle.consultaAnimal(MC_NomeCliente.getText(),MC_NomeAnimal.getText());
-            resultado2 = controle.consultaVeterinario(MC_NomeVeterinario.getText());
-    if((resultado[0] == null)||(resultado1[0]==null)||(resultado2[0]==null)){
-                MC_Status.setText(" Cliente/Animal/Veterinario não encontrado!");
-    }else{
-                 try{
-                        
-                        if(controle.consultaTratamento(MC_NomeCliente.getText(),MC_NomeAnimal.getText(), formato.parse(MC_Data.getText()))){
-                            if("".equals(MC_Exame.getText())){
-                                controle.writeConsulta(MC_NomeCliente.getText(),MC_NomeAnimal.getText(), (MC_Data.getText()),MC_Historico.getText(),MC_NomeVeterinario.getText());
-                            }else{
-                                controle.writeConsulta(MC_NomeCliente.getText(),MC_NomeAnimal.getText(), (MC_Data.getText()),MC_Historico.getText(),MC_NomeVeterinario.getText(),MC_Exame.getText()); 
-                            }
-
-                            MC_Status.setText("Consulta de "+MC_NomeAnimal.getText() + " cadastrada!");
-                        }else{
-                            MC_Status.setText("Não há data de tratamento iniciada para a data de consulta inserida.");
-                        }
-                 }catch(ParseException e){
-                        MC_Status.setText("Data inserida fora do formato DD/MM/AAAA (DIA = DD, MÊS = MM e ANO = AAAA)");
-                 }
-    }
-        
-// TODO add your handling code here:
-    }//GEN-LAST:event_MC_GravarMouseClicked
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        int x,y;
-        String [][] dados= controle.tabelaVeterinario();
-        
-        
-        for(x=0,y=0;dados[y][x]!= null;y++)  
-            for(x=0;x<3;x++)
-                 jTable1.setValueAt(dados[y][x], y, x);
-        
-        
-        
+       // int x, y;
+      controle.escreveRelatorio();
+        //int length = dados.length;
+
+      //  for (x = 0, y = 0; dados[y][x] != null; y++) {
+        //    for (x = 0; x < 3; x++) {
+          //      jTable1.setValueAt(dados[y][x], y, x);
+            //}
+           // x = 0;
+       // }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
@@ -1025,9 +965,70 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTable1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTable1PropertyChange
+    private void CV_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CV_NomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1PropertyChange
+    }//GEN-LAST:event_CV_NomeActionPerformed
+
+    private void MC_GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_GravarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MC_GravarActionPerformed
+
+    private void MC_GravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MC_GravarMouseClicked
+
+        String[] resultado, resultado1, resultado2;
+
+        resultado = controle.consultaCliente(MC_NomeCliente.getText());
+        resultado1 = controle.consultaAnimal(MC_NomeCliente.getText(), MC_NomeAnimal.getText());
+        resultado2 = controle.consultaVeterinario(MC_NomeVeterinario.getText());
+        if ((resultado[0] == null) || (resultado1[0] == null) || (resultado2[0] == null)) {
+            MC_Status.setText(" Cliente/Animal/Veterinario não encontrado!");
+        } else {
+            try {
+
+                if (controle.consultaTratamento(MC_NomeCliente.getText(), MC_NomeAnimal.getText(), formato.parse(MC_Data.getText()))) {
+                    if ("".equals(MC_Exame.getText())) {
+                        controle.writeConsulta(MC_NomeCliente.getText(), MC_NomeAnimal.getText(), (MC_Data.getText()), MC_Historico.getText(), MC_NomeVeterinario.getText());
+                        
+                        MC_NomeCliente.setText("");
+                        MC_NomeAnimal.setText("");
+                        MC_Data.setText("");
+                        MC_Historico.setText("");
+                        MC_NomeVeterinario.setText("");
+                        
+                    } else {
+                        controle.writeConsulta(MC_NomeCliente.getText(), MC_NomeAnimal.getText(), (MC_Data.getText()), MC_Historico.getText(), MC_NomeVeterinario.getText(), MC_Exame.getText());
+                        
+                        MC_NomeCliente.setText("");
+                        MC_NomeAnimal.setText("");
+                        MC_Data.setText("");
+                        MC_Historico.setText("");
+                        MC_NomeVeterinario.setText("");
+                        MC_Exame.setText("");
+                    }
+
+                    MC_Status.setText("Consulta de " + MC_NomeAnimal.getText() + " cadastrada!");
+                } else {
+                    MC_Status.setText("Não há data de tratamento iniciada para a data de consulta inserida.");
+                }
+            } catch (ParseException e) {
+                MC_Status.setText("Data inserida fora do formato DD/MM/AAAA (DIA = DD, MÊS = MM e ANO = AAAA)");
+            }
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MC_GravarMouseClicked
+
+    private void MC_ExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_ExameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MC_ExameActionPerformed
+
+    private void MC_HistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_HistoricoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MC_HistoricoActionPerformed
+
+    private void MC_DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MC_DataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MC_DataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1060,7 +1061,7 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interface_Veterinaria().setVisible(true);
-         
+
             }
         });
     }
@@ -1137,9 +1138,6 @@ public class Interface_Veterinaria extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

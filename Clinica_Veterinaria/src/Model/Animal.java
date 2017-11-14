@@ -5,17 +5,19 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
   * @author MaximilianoNunesBiscaia,156757
  * @author NayaraRosa,175244
  */
-public class Animal extends Especie {
+public class Animal extends Especie implements Serializable {
     
     private String nome_animal;
     private int idade_animal;
     private String sexo_animal;
+    private String espec;
     private Cliente cliente;
     private ArrayList<Model.Tratamento> dadosTratamento;
      
@@ -28,7 +30,8 @@ public class Animal extends Especie {
     nome_animal = dados[0];
     idade_animal = Integer.parseInt(dados[1]);
     sexo_animal = dados[2];
-    this.setEspecie(dados[3]);
+    //this.setEspecie(dados[3]);  
+    espec = dados[3];
    dadosTratamento = new ArrayList<>();
     }
 
@@ -42,7 +45,7 @@ public class Animal extends Especie {
         dados[0]= nome_animal;
         dados[1] = String.valueOf(idade_animal);
         dados[2] = sexo_animal;
-        dados[3] = this.getEspecie();
+        dados[3] = espec;
         return dados;
        
     }
@@ -70,5 +73,23 @@ public class Animal extends Especie {
     public void setTratamento(Tratamento trat){
         dadosTratamento.add(trat);
     }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString()
+    {
+     
+      return "Nome Animal: " + this.nome_animal + "\r\n"
+            +"Idade: " + this.idade_animal + "\r\n"
+            +"Sexo: " + this.sexo_animal+ "\r\n"
+            +"Especie: " + this.espec + "\r\n";
+           
+                
+    }
+    
+    
     
 }
